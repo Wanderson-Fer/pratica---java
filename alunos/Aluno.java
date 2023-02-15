@@ -2,15 +2,14 @@ package alunos;
 
 public class Aluno {
     private int matricula;
-    private double notas[];
+    private double notas[] = {};
 
     private String nome;
     private String curso;
     private String telefone;
 
-    public Aluno(int matricula, double notas[], String nome, String curso, String telefone) {
+    public Aluno(int matricula, String nome, String curso, String telefone) {
         this.matricula = matricula;
-        this.notas = notas;
         this.nome = nome;
         this.curso = curso;
         this.telefone = telefone;
@@ -53,7 +52,15 @@ public class Aluno {
         }
     }
     public void addNota(double nota) {
-        notas[notas.length] = nota;
+        double[] newNotas = new double[this.notas.length + 1];
+
+        for (int i = 0; i < this.notas.length; i++) {
+            newNotas[i] = this.notas[i];
+        }
+
+        newNotas[newNotas.length - 1] = nota;
+
+        this.notas = newNotas;
     }
 
     public double media() {
@@ -73,5 +80,15 @@ public class Aluno {
         } else {
             return "Reprovado";
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno" + getNome() +
+        "\nMatricula: " + getMatricula() +
+        "\nCurso: " + getCurso() +
+        "\nTelefone: " + getTelefone() +
+        "\nMedia: " + media() +
+        "\nStatus: " + status();
     }
 }
