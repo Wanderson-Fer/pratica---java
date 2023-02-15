@@ -1,13 +1,14 @@
 package alunos;
 
 public class Aluno {
+    // Atributos do aluno
     private int matricula;
-    private double notas[] = {};
-
+    private double notas[] = {}; // Array de notas do aluno
     private String nome;
     private String curso;
     private String telefone;
 
+    // Construtor
     public Aluno(int matricula, String nome, String curso, String telefone) {
         this.matricula = matricula;
         this.nome = nome;
@@ -44,6 +45,7 @@ public class Aluno {
         return notas;
     }
     public void setNotas(double nota, int index) {
+        // verifica se a posição está válida
         try {
             this.notas[index] = nota;
         } catch (IndexOutOfBoundsException e) {
@@ -51,18 +53,25 @@ public class Aluno {
             e.printStackTrace();
         }
     }
+
+    // Adiciona uma nota ao aluno
     public void addNota(double nota) {
+        // Array usado para substituir o array de notas
         double[] newNotas = new double[this.notas.length + 1];
 
+        // Notas já existentes
         for (int i = 0; i < this.notas.length; i++) {
             newNotas[i] = this.notas[i];
         }
 
+        // Adiciona a nova nota
         newNotas[newNotas.length - 1] = nota;
 
+        // Update no array de notas
         this.notas = newNotas;
     }
 
+    // Calculo dinamico de media
     public double media() {
         double soma = 0;
         for (double nota : notas) {
@@ -71,6 +80,7 @@ public class Aluno {
         return soma / notas.length;
     }
 
+    // Lógica de Status
     public String status() {
         double media = this.media();
         if (media >= 6) {
@@ -82,6 +92,7 @@ public class Aluno {
         }
     }
 
+    // Exibição final
     @Override
     public String toString() {
         return "Aluno" + getNome() +
