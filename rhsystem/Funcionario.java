@@ -18,7 +18,7 @@ public class Funcionario {
         this.salario = salario;
         this.bairro = bairro;
 
-        calcImposto();
+        this.calcImposto();
     }
 
     // Getters
