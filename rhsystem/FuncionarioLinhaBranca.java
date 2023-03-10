@@ -14,17 +14,13 @@ public class FuncionarioLinhaBranca extends Funcionario {
         this.calcComissao();
     }
 
-    public FuncionarioLinhaBranca() {        
-        super();
-
-        Scanner input = new Scanner(System.in);
+    public FuncionarioLinhaBranca(Scanner in) {        
+        super(in);
 
         System.out.println("Informe o valor das vendas do funcionário: ");
-        this.valorVendas = input.nextDouble();
+        this.valorVendas = in.nextDouble();
 
         this.calcComissao();
-
-        input.close();
     }
 
     // Getters
@@ -68,7 +64,7 @@ public class FuncionarioLinhaBranca extends Funcionario {
     @Override
     public String getFuncionario() {
         return super.getFuncionario() +
-            "+ Valor de Vandas: " + this.getValorVendas() +
-            "+ Comissão: " + this.getComissao();
+            "+ Valor de Vandas: " + this.getValorVendas() + "\n"+
+            "+ Comissão: " + this.getComissao()+ "\n";
     }
 }

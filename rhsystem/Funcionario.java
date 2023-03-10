@@ -23,24 +23,22 @@ public class Funcionario {
         this.calcImposto();
     }
 
-    public Funcionario() {
-        Scanner input = new Scanner(System.in);
+    public Funcionario(Scanner in) {
 
         System.out.println("Digite a matricula do Funcionário:");
-        this.matricula = input.nextInt();
+        this.matricula = in.nextInt();
         System.out.println("Digite o nome do Funcionário:");
-        this.nome = input.next();
+        this.nome = in.next();
         System.out.println("Digite o CPF do Funcionário:");
-        this.cpf = input.next();
+        this.cpf = in.next();
         System.out.println("Digite o salario do Funcionário:");
-        this.salario = input.nextDouble();
+        this.salario = in.nextDouble();
 
         // inicializando bairro
         this.bairro = new Bairro(0, "Bairro not found!");
 
         this.calcImposto();
 
-        input.close();
     }
 
     // Getters
@@ -101,13 +99,13 @@ public class Funcionario {
 
     // Output Function
     public String getFuncionario() {
-        return "\n+------------------------------------+" +
-            "+ Matrícula: " + this.getMatricula() +
-            "+ Nome: " + this.getNome() +
-            "+ CPF: " + this.getCpf() +
-            "+ Salario bruto: " + this.getSalario() +
-            "+ Imposto: " + this.getImposto() +
-            "+ Salario final: " + this.calcSalario();
+        return "\n+------------------------------------+" + "\n"+
+            "+ Matrícula: " + this.getMatricula() + "\n"+
+            "+ Nome: " + this.getNome() + "\n"+
+            "+ CPF: " + this.getCpf() + "\n"+
+            "+ Salario bruto: " + this.getSalario() + "\n"+
+            "+ Imposto: " + this.getImposto() + "\n"+
+            "+ Salario final: " + this.calcSalario()+ "\n";
     }
 
 }
