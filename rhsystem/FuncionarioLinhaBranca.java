@@ -63,4 +63,12 @@ public class FuncionarioLinhaBranca extends Funcionario {
     public Double calcSalario(Double bonus) {
         return super.calcSalario(bonus) + this.comissao;
     }
+
+    // Output function
+    @Override
+    public String getFuncionario() {
+        return super.getFuncionario() +
+            "+ Valor de Vandas: " + this.getValorVendas() +
+            "+ Comissão: " + this.getComissao();
+    }
 }

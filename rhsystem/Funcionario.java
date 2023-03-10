@@ -61,6 +61,9 @@ public class Funcionario {
         return salario;
     }
 
+    public Double getImposto() {
+        return imposto;
+    }
     // Setters
 
     public void setNome(String nome) {
@@ -95,4 +98,16 @@ public class Funcionario {
     public Double calcSalario(Double bonus) {
         return this.salario - this.imposto + bonus;
     }
+
+    // Output Function
+    public String getFuncionario() {
+        return "\n+------------------------------------+" +
+            "+ Matrícula: " + this.getMatricula() +
+            "+ Nome: " + this.getNome() +
+            "+ CPF: " + this.getCpf() +
+            "+ Salario bruto: " + this.getSalario() +
+            "+ Imposto: " + this.getImposto() +
+            "+ Salario final: " + this.calcSalario();
+    }
+
 }
