@@ -1,5 +1,7 @@
 package rhsystem;
 
+import java.util.Scanner;
+
 public class FuncionarioLinhaBranca extends Funcionario {
     private Double valorVendas;
     private Double comissao;
@@ -10,6 +12,19 @@ public class FuncionarioLinhaBranca extends Funcionario {
         this.valorVendas = valorVendas;
 
         this.calcComissao();
+    }
+
+    public FuncionarioLinhaBranca() {        
+        super();
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Informe o valor das vendas do funcionário: ");
+        this.valorVendas = input.nextDouble();
+
+        this.calcComissao();
+
+        input.close();
     }
 
     // Getters

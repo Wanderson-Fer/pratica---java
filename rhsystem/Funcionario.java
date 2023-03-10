@@ -1,5 +1,7 @@
 package rhsystem;
 
+import java.util.Scanner;
+
 public class Funcionario {
     private final Integer matricula;
     private String nome;
@@ -19,6 +21,26 @@ public class Funcionario {
         this.bairro = bairro;
 
         this.calcImposto();
+    }
+
+    public Funcionario() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite a matricula do Funcionário:");
+        this.matricula = input.nextInt();
+        System.out.println("Digite o nome do Funcionário:");
+        this.nome = input.next();
+        System.out.println("Digite o CPF do Funcionário:");
+        this.cpf = input.next();
+        System.out.println("Digite o salario do Funcionário:");
+        this.salario = input.nextDouble();
+
+        // inicializando bairro
+        this.bairro = new Bairro(0, "Bairro not found!");
+
+        this.calcImposto();
+
+        input.close();
     }
 
     // Getters
